@@ -1,0 +1,50 @@
+@page
+@using Patterns.Chap3.Model;
+@model IndexModel;
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @if (Model.HasError)
+    {
+        <h3>@Model.ErrorMessage</h3>
+    }
+</div>
+
+@if (!Model.HasError)
+{
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <form method="get">
+                        <select asp-for="CustomerType" name="type" onchange="this.form.submit();">
+                            <option value="@nameof(CustomerType.Standard)">@nameof(CustomerType.Standard)</option>
+                            <option value="@nameof(CustomerType.Trade)">@nameof(CustomerType.Trade)</option>
+                        </select>
+                    </form>
+                </th>
+                <th scope="col">Name</th>
+                <th scope="col">RRP</th>
+                <th scope="col">Selling Price</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Savings</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model?.Products)
+            {
+                <tr>
+                    <th scope="row">@product.ProductId</th>
+                    <td>@product.Name</td>
+                    <td>@product.RRP</td>
+                    <td>@product.SellingPrice</td>
+                    <td>@product.Discount</td>
+                    <td>@product.Savings</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

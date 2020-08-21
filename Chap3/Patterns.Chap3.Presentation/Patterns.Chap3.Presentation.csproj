@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Patterns.Chap3.Presentation</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Patterns.Chap3.Model\Patterns.Chap3.Model.csproj" />
+    <ProjectReference Include="..\Patterns.Chap3.Service\Patterns.Chap3.Service.csproj" />
+  </ItemGroup>
+
+</Project>
